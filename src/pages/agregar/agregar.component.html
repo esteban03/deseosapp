@@ -39,8 +39,9 @@
 
         <ion-item *ngFor="let item of items; let i = index">
           <button color="dark" ion-button clear>{{ item.nombre }}</button> 
-          <button color="danger" ion-button outline item-right>
-            <ion-icon ios="ios-trash" md="md-trash"></ion-icon> &nbsp; Eliminar {{ i }}
+          <button (click)="eliminarItem(i)"
+                  color="danger" ion-button outline item-right>
+            <ion-icon ios="ios-trash" md="md-trash"></ion-icon> &nbsp; Eliminar
           </button>
         </ion-item>
 

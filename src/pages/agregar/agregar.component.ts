@@ -32,9 +32,9 @@ export class AgregarComponent {
 
     }
 
-    eliminarItem() {
-        
-        
+    eliminarItem(id: number) {
+
+        this.items.splice(id, 1);
 
     }
 
