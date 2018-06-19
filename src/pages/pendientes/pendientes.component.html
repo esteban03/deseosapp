@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Pendientes</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- <h2>Lista de pendientes</h2> -->
+  
+<ion-card *ngFor="let lista of listaDeseos.listas">
+
+    <ion-card-header>
+      {{ lista.nombre }}
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          Tarea
+          <ion-icon ios="ios-arrow-dropright-circle" md="md-arrow-dropright-circle"></ion-icon>
+        </ion-item>
+        <ion-item>
+          Tarea
+          <ion-icon ios="ios-arrow-dropright-circle" md="md-arrow-dropright-circle"></ion-icon>
+        </ion-item>
+        <ion-item>
+          Tarea
+          <ion-icon ios="ios-arrow-dropright-circle" md="md-arrow-dropright-circle"></ion-icon>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-fab right bottom>
+    <button ion-fab color="primary" (click)="irAgregar()"><ion-icon ios="ios-add" md="md-add"></ion-icon></button>
+  </ion-fab>
+
+</ion-content>
