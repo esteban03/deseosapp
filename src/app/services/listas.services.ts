@@ -7,14 +7,36 @@ export class ListasService {
     listas: Lista[] = [];
 
     constructor() { 
-
-        let lista1 = new Lista('Lista de supermercado');
-        let lista2 = new Lista('Lista de juegos');
-        let lista3 = new Lista('Lista de deportes');
-
-        this.listas.push(lista1);
-        this.listas.push(lista2);
-        this.listas.push(lista3);
-        
+        this.cargaData();
     }
+    
+    /**
+     * carga la data del LocalStorage en el servicio
+     */
+    private cargaData(){
+        
+        const DATA = JSON.parse(localStorage.getItem('data'));
+
+        if (DATA) {
+            this.listas = DATA;
+        }
+
+    }
+    
+    /**
+     * carga la data del servicio en el LocalStorage 
+     */
+    guardarData(){
+        localStorage.setItem( 'data', JSON.stringify(this.listas) );
+    }
+    
+    /**
+     * ingresa y guarda una lista
+     * @param lista: Lista
+     */
+    ingresarLista(lista: Lista){
+        this.listas.push(lista);
+        this.guardarData();
+    }
+
 }
