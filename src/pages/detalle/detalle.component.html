@@ -1,20 +1,19 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>Pendientes</ion-title>
+    <ion-title> {{ lista.nombre }} </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  
-  <ion-card *ngFor="let lista of listaDeseos.listas | pendientes:false; let i = index" >
 
-    <ion-card-header (click)="irDetalle(i, lista)">
-      {{ lista.nombre }}
+  <ion-card>
+    <ion-card-header>
+        {{ lista.nombre }}
     </ion-card-header>
 
     <ion-card-content>
       <ion-list>
-        <ion-item *ngFor="let item of lista.items">
+        <ion-item *ngFor="let item of lista.items" (click)="editarItem(item)" >
           <ion-icon *ngIf="!item.completado" ios="ios-square-outline" md="md-square-outline"></ion-icon>
           <ion-icon *ngIf="item.completado" ios="ios-checkbox-outline" md="md-checkbox-outline"></ion-icon>
           <span [class.tachado]="item.completado" >{{ item.nombre }}</span>
@@ -22,10 +21,9 @@
       </ion-list>
     </ion-card-content>
 
+    <button (click)="eliminarLista()"
+      class="button-block" color="danger" ion-button>Eliminar lista</button>
+
   </ion-card>
 
-  <ion-fab right bottom>
-    <button ion-fab color="primary" (click)="irAgregar()"><ion-icon ios="ios-add" md="md-add"></ion-icon></button>
-  </ion-fab>
-
-</ion-content>
+</ion-content>  

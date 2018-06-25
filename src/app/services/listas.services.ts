@@ -39,4 +39,9 @@ export class ListasService {
         this.guardarData();
     }
 
+    eliminarLista(id: number) {
+        this.listas.splice(id, 1);
+        this.guardarData();
+    }
+
 }
