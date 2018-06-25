@@ -10,6 +10,8 @@ import { NavController } from 'ionic-angular';
 })
 export class TerminadosComponent {
     
+    pendientes = true;
+
     constructor(public listaDeseos: ListasService, 
                 private navCtrl: NavController) {   
     }

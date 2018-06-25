@@ -10,6 +10,8 @@ import { DetalleComponent } from '../detalle/detalle.component';
     templateUrl: 'pendientes.component.html'
 })
 export class PendientesComponent{
+    
+    pendientes = false;
 
     constructor(public listaDeseos: ListasService, 
                 private navCtrl: NavController){
@@ -17,10 +19,6 @@ export class PendientesComponent{
 
     irAgregar() {
         this.navCtrl.push(AgregarComponent);
-    }
-
-    irDetalle(id: number, lista: Lista) {
-        this.navCtrl.push(DetalleComponent, { id, lista});
     }
 
 }
